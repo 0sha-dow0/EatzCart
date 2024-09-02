@@ -2,10 +2,7 @@ package com.training.HungerBox.model.vendor;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,8 +15,9 @@ public class VendorDetails {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("vendorId")
-    String vendorId;
+    Integer vendorId;
 
     @Column(name = "vendor_name")
     @JsonProperty("vendorName")
@@ -29,6 +27,9 @@ public class VendorDetails {
     @JsonProperty("active")
     Boolean activeFlag;
 
+    @Column(name = "status")
+    @JsonProperty("status")
+    String status;
 
 
 

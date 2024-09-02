@@ -21,12 +21,29 @@ public class vendorController {
 
 
 
-    @GetMapping(path = "/allVendors")
+    @GetMapping(path = "/all_Vendors")
     @ResponseBody
     public List<VendorDetails> vendor() {
         System.out.println("hrere");
        return vendorService.getAllVendorDetails();
     }
 
+    @PostMapping(path = "/add_vendor")
+    @ResponseBody
+    public String addVendor(@RequestBody VendorDetails vendorDetails) {
+        return vendorService.addVendorDetails(vendorDetails);
+    }
+
+    @GetMapping(path = "/vendor_status/{status}")
+    @ResponseBody
+    public List<VendorDetails> getAllActiveVendors(@PathVariable String status) {
+        return vendorService.getAllActiveVendorDetails(status);
+    }
+
+    @GetMapping(path = "/vendor_approval_status/{vendorId}")
+    @ResponseBody
+    public String getAllActiveVendors(@PathVariable Integer vendorId) {
+        return vendorService.verifyVendor(vendorId);
+    }
 
 }

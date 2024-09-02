@@ -8,5 +8,7 @@ import java.util.List;
 public interface VendorRepository extends JpaRepository<VendorDetails , Integer> {
 
     List<VendorDetails> findAll();
+    List<VendorDetails> findAllByStatus(String status);
+
 
 }
